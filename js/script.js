@@ -81,6 +81,30 @@ function validaCampoNumerico(elemento){
 
 }
 
+function validaCep(elemento){
+
+    elemento.addEventListener('focusout', function(event) {
+
+        event.preventDefault();
+
+        const cep = /^\d{5}-\d{3}$/; 
+
+        if (this.value.match(cep)){
+            document.querySelector('.mensagem').innerHTML = "";
+            this.classList.remove('erro');
+            this.parentNode.classList.remove('erro');
+        } else {
+            document.querySelector('.mensagem').innerHTML = "verifique o preenchimento dos campos em destaque";
+            this.classList.add('erro');
+            this.parentNode.classList.add('erro');
+            return false;
+        }
+
+    });
+
+}
+
+
 function validaCpf(elemento){
 
     elemento.addEventListener('focusout', function(event) {
@@ -152,17 +176,17 @@ function validaUf (elemento){
 
 
 let camposObrigatorios = document.querySelectorAll('input.obrigatorio');
-let camposNumericos = document.querySelectorAll('input.numero');
 let camposEmail = document.querySelectorAll('input.email');
 let camposCpf = document.querySelectorAll('input.cpf');
+let camposCep = document.querySelectorAll('input.cep');
 let camposUf = document.querySelectorAll('input.uf');
 
 for( let emFoco of camposObrigatorios) {
     validaCampo(emFoco);
 }
 
-for( let emFoco of camposNumericos) {
-    validaCampoNumerico(emFoco);
+for( let emFoco of camposCep) {
+    validaCep(emFoco);
 }
 
 for( let emFoco of camposEmail) {
