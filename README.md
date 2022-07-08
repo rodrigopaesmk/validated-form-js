@@ -10,6 +10,6 @@ Formulário com a validação dos campos mais utilizados.
 Novos campos será adicionado futuramente!
 ##
 
-# Web sites de referencias
+# Web sites de referências
 - <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions>
 - <https://regex101.com/>
